@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Subject</title>
+</head>
+<body>
+    <h2>Create Subject</h2>
+    <form method="post">
+        {% csrf_token %}
+        <input name="name" placeholder="Name" value="" required/>
+        <input name="subCode" placeholder="Sub Code" required/>
+        <button type="submit">Save</button>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            padding: 40px;
+        }
+
+        .container {
+            background-color: white;
+            max-width: 600px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        p {
+            font-size: 18px;
+            margin: 12px 0;
+        }
+
+        span.label {
+            font-weight: bold;
+            color: #34495e;
+        }
+
+        a.button {
+            display: block;
+            width: fit-content;
+            margin: 20px auto 0;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        a.button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>{{ student.name }}</h1>
+    <p><span class="label">Roll no:</span> {{ student.roll_no }}</p>
+    <p><span class="label">Email:</span> {{ student.email }}</p>
+     <p><span class="label">Date of Joining:</span> {{ student.joined_date }}</p>
+    
+    
+    {% if marks %}
+        <table border="1">
+            <tr>
+                <th>subject</th>
+                <th>Mark</th>
+            </tr>
+            {% for mark in marks %}
+            <tr>
+                <td>{{ mark.subject }}</td>
+                <td>{{ mark.mark}}</td>
+        
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="3">No marks found.</td>
+            </tr>
+            
+            {% endfor %}
+        </table>
+    {%endif%}
+    <a href="{% url 'student_list' %}" class="button">Back to Student List</a>
+    <a href="{% url 'edit_student' student.id %}" class="button">edit</a>
+      <a href="{% url 'add_multiple_marks' student.id %}">
+    <button>Add 5 Subject Marks</button>
+</a>
+   {% if student.photo %}
+    <img src="{{ student.photo.url }}" width="200" height="200" alt="Student Photo">
+{% else %}
+    <p>No photo uploaded.</p>
+{% endif %}
+
+    
+</form>
+</div>
+
+</body>
+</html>

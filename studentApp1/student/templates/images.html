@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Images</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            padding: 40px;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 20px;
+            text-align: center;
+            width: 200px;
+        }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .card p {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Student Photos</h1>
+
+    <div class="gallery">
+        {% for student in students %}
+            <div class="card">
+                {% if student.photo %}
+                    <img src="{{ student.photo.url }}" alt="{{ student.name }}">
+                {% else %}
+                    <img src="{% static 'images/default.png' %}" alt="No Photo">
+                {% endif %}
+                <p>{{ student.name }}</p>
+            </div>
+        {% empty %}
+            <p>No students found.</p>
+        {% endfor %}
+    </div>
+</body>
+</html>

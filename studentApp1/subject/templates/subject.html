@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subjects</title>
+</head>
+<body>
+    <h1>Subject</h1>
+
+    <table border="1">
+            <tr>
+                <th>Name</th>
+                <th>Subcode</th>
+                <th>Action</th>
+            </tr>
+            {% for subject1 in subjects %}
+            <tr>
+                <td>{{ subject1.name }}</td>
+                <td>{{ subject1.subCode }}</td>
+                <td><a href="{% url 'subject_detail' subject1.id %}"><button>View</button></a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="3">No subjects found.</td>
+        </tr>
+         {% endfor %}
+    </table>
+
+    <br>
+    
+    <a href="{% url 'create_subject' %}">
+        <button>Add Sub</button>
+    </a>
+</body>
+</html>

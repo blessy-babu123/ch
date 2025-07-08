@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Teacher</title>
+</head>
+<body>
+    <h2>Create Teacher</h2>
+    <form method="post">
+        {% csrf_token %}
+        <input name='name' placeholder='Name' required/>
+        <input type='number'name ='Age' placeholder='Age' required/>
+        <select name='subject' required>
+            <option value=""> Select Subject</option>
+            {% for subject in subjects %}
+                <option value={{subject.id}}  >{{subject.name}}</option>  
+            {% endfor %}
+        </select>
+
+        <input name='experience' placeholder='experience' required/>
+        <input type='date' name='joined_date' placeholder='date of join' required/>
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>

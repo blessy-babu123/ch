@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page</title>
+</head>
+<body>
+    <h1>Welcome to School Portal</h1>
+    <p>
+        Django is a high-level Python web framework that encourages rapid development 
+        and clean, pragmatic design. It’s built by experienced developers to help you take 
+        applications from concept to completion as quickly as possible.
+    </p>
+    <p>
+        This page demonstrates how you can return an HTML paragraph directly from a Django view.
+    </p>
+      <a href="{% url 'home2' %}">home2</a> |
+          <a href="{% url 'student_list' %}">
+        <button>Student</button>
+    </a>
+     <a href="{% url 'teacher_list' %}">
+        <button>Teacher</button>
+    </a>
+    
+          <a href="{% url 'about' %}">
+        <button>about</button>
+    </a>
+    <style>
+        body {
+            background-color: #f0f4f8;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            color: #2c3e50;
+        }
+
+        p {
+            color: #34495e;
+            font-size: 18px;
+        }
+
+        .button-container {
+            margin-top: 30px;
+        }
+
+        a button {
+            padding: 12px 25px;
+            margin: 10px;
+            font-size: 16px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        a button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+
+</body>
+</html>

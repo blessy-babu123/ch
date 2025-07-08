@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Student</title>
+</head>
+<body>
+    <h2>Create Student</h2>
+    <form method="post">
+        {% csrf_token %}
+        <input name='name' placeholder='Name' required/>
+        <input type='number'name ='roll_no' placeholder='roll_no' required/>
+        <input name='email' placeholder='email' required/>
+        <input type='date' name='joined_date' placeholder='joined_date' required/>
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>

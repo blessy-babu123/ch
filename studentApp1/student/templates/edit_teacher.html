@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>edit Teacher</title>
+</head>
+<body>
+    <h2>edit Teacher</h2>
+    <form method="post">
+        {% csrf_token %}
+        <input name='name' placeholder='Name' value={{teacher.name}} required/>
+        <input type='number'name ='Age' placeholder='Age' value={{teacher.age}} required/>
+        <select name='subject' required>
+        <option value=""> Select Subject</option>
+        {%for subject in subjects%}
+             <option value={{subject.id}} {%if teacher.subject.id == subject.id %}selected{%endif%}>{{subject.name}}</option>
+        {% comment %} <option value='MAL' {% if teacher.subject == "MAL" %}selected{% endif %} >MALAYALAM</option>   {% endcomment %}
+        {%endfor%}
+        </select>
+
+        <input name='experience' placeholder='experience' value={{teacher.experience}} required/>
+        <input type='date' name='joined_date' placeholder='date of join' value= "{{ teacher.joined_date|date:'Y-m-d' }}" required/>
+        <button type="submit">Update</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Multiple Marks</title>
+</head>
+<body>
+    <h2>Enter Marks for {{ student.name }}</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <table border="1">
+            <tr>
+                <th>Subject</th>
+                <th>Mark</th>
+            </tr>
+            {% for subject in subjects %}
+            <tr>
+                <td>{{ subject.name }}</td>
+                <td>
+                    <input type="number" name="mark_{{ subject.id }}" min="0" max="100" required>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <br>
+        <button type="submit">Submit All Marks</button>
+    </form>
+</body>
+</html>

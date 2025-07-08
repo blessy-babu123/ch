@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Subject</title>
+</head>
+<body>
+    <h2>Edit Subject</h2>
+    <form method="post">
+        {% csrf_token %}
+        <input name="name" placeholder="Name" value={{subject.name}} required/>
+        <input name="subCode" placeholder="Sub Code" value={{subject.subCode}} required/>
+        <button type="submit">Update</button>
+    </form>
+
+</body>
+</html>
